@@ -1,16 +1,13 @@
 package lab4;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.Rectangle2D;
-
 public class FractalExplorer {
   private int size;
   private JImageDisplay image;
   private FractalGenerator fcGen;
   private Rectangle2D.Double range;
-
   public FractalExplorer(int size) {
     this.size = size;
     this.fcGen = new Mandelbrot();
@@ -18,22 +15,18 @@ public class FractalExplorer {
     fcGen.getInitialRange(this.range);
     createAndShowGUI();
     drawFractal();
-
   }
   /** инициализирует графический интерфейс Swing */
   public void createAndShowGUI() {
     JFrame frame = new JFrame("Fractal");
     JButton button = new JButton("Reset");
     image = new JImageDisplay(size, size);
-
     frame.add(image, BorderLayout.CENTER);
     frame.add(button, BorderLayout.SOUTH);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
     frame.pack();
     frame.setVisible(true);
     frame.setResizable(false);
-
     button.addActionListener( new ActionHandler());
     image.addMouseListener(new MouseHandler());
   }
@@ -71,13 +64,10 @@ public class FractalExplorer {
       fcGen.recenterAndZoomRange(range, mouseX, mouseY, 0.5);
       drawFractal();
     }
-
     public void mousePressed(MouseEvent e) {}
     public void mouseReleased(MouseEvent e) {}
     public void mouseEntered(MouseEvent e) {}
     public void mouseExited(MouseEvent e) {}
   }
-
   public static void main(String[] args) {new FractalExplorer(500);}
-
 }

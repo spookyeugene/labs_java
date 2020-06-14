@@ -1,5 +1,4 @@
 package lab4;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -24,13 +23,10 @@ public class JImageDisplay extends JComponent{
       }
     }
   }
-
   public void  drawPixel (int x, int y, int rgbColor){
     Image.setRGB(x,y, rgbColor);
   }
-
   public BufferedImage getBufferedImage() {
     return Image;
   }
-
 }
